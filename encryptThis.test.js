@@ -8,6 +8,19 @@ describe("Encrypt this", function() {
     expect(encryptThis('K')).toBe('75')
   })
 
+  it('Should return the string with first letter replaced by its ascii code', () => {
+    const result = encryptThis('Avion')
+    expect(result.length).toBeGreaterThan(1)
+    expect(result[0]).toBe('6')
+    expect(result[1]).toBe('5')
+  })
+
+  it('Should revert the second and last letter of a word', () => {
+    expect(encryptThis('othello')).toBe('111ohellt')
+    expect(encryptThis('Avion')).toBe('65niov')
+    expect(encryptThis('Koala')).toBe('75aalo')
+  })
+
   // it("should work with fixed tests", function() {
   //   expect(encryptThis("A")).toBe("65");
   //   expect(encryptThis("A wise old owl lived in an oak")).toBe("65 119esi 111dl 111lw 108dvei 105n 97n 111ka");

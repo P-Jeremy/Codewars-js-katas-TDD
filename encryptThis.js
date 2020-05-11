@@ -18,9 +18,21 @@ Acknowledgments:
 
 
 var encryptThis = function(text) {
-  let response 
-  if (text.length < 2) response = String(text.charCodeAt(0))
-  return response
+  let word = text.split('')
+  if (text.length === 1) return String(text.charCodeAt(0))
+
+  const reversed = word.map((letter, i) => {
+    if (i === 1) {
+      letter = text[text.length-1]
+    }
+    if (i === (text.length-1)) {
+      letter = text[1]
+    }
+    return letter
+  })
+
+  return text.charCodeAt(0) + reversed.join('').slice(1)
+
 }
 
 module.exports = encryptThis
