@@ -8,18 +8,26 @@ describe("Encrypt this", function() {
     expect(encryptThis('K')).toBe('75')
   })
 
-  it('Should return the string with first letter replaced by its ascii code', () => {
-    const result = encryptThis('Avion')
-    expect(result.length).toBeGreaterThan(1)
-    expect(result[0]).toBe('6')
-    expect(result[1]).toBe('5')
+  describe('One word', () => {
+    it('Should return the string with first letter replaced by its ascii code', () => {
+      const result = encryptThis('Avion')
+      expect(result.length).toBeGreaterThan(1)
+      expect(result[0]).toBe('6')
+      expect(result[1]).toBe('5')
+    })
+  
+    it('Should revert the second and last letter of the word', () => {
+      expect(encryptThis('othello')).toBe('111ohellt')
+      expect(encryptThis('Avion')).toBe('65niov')
+      expect(encryptThis('Koala')).toBe('75aalo')
+    })
   })
 
-  it('Should revert the second and last letter of a word', () => {
-    expect(encryptThis('othello')).toBe('111ohellt')
-    expect(encryptThis('Avion')).toBe('65niov')
-    expect(encryptThis('Koala')).toBe('75aalo')
-  })
+  // describe('Several words', () => {
+  //   it('Should replace first letter of every word by ascii code', () => {
+  //     expect(encryptThis('othello Avion')).toBe('111thello 65vion')
+  //   })
+  // })
 
   // it("should work with fixed tests", function() {
   //   expect(encryptThis("A")).toBe("65");
