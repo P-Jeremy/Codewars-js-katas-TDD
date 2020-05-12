@@ -17,18 +17,14 @@
 
 // return the missing number!
 function findNumber(array) {
-  let number = 0
-  if(!array) return number
+  let number = 1
+  if (!array) return 0
   array.sort((a,b) => a-b)
-  if (array[0] !== 1) return 1
-
   for (let i = 0, max = array.length ; i < max; i++) {
-    if (array[i] + 1 !== array[i+1]) {
-      number = array[i] + 1
-      break
+    if (array[i] === number) {
+      number +=1
     }
   }
-
   return number
 }
 
