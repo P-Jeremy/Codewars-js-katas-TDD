@@ -20,8 +20,10 @@ Acknowledgments:
 var encryptThis = function(text) {
   return text.split(' ').map( word => {
     if (word.length === 1) return word.charCodeAt(0)
+    if (word.length === 2) return word.charCodeAt(0) + word[1]
+    if (word.length === 3) return word.charCodeAt(0) + word[2] + word[1]
     return word.charCodeAt(0) + word[word.length-1] + word.slice(2, word.length-1) + word[1]
-  }).join('')
+  }).join(' ')
 }
 
 module.exports = encryptThis
